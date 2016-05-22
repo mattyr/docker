@@ -1,4 +1,4 @@
-.PHONY: all binary build cross default docs docs-build docs-shell shell test test-docker-py test-integration-cli test-unit validate
+.PHONY: all binary build cross default docs docs-build docs-shell shell test test-docker-py test-integration-cli test-unit validate run
 
 # get OS/Arch of docker engine
 DOCKER_OSARCH := $(shell bash -c 'source hack/make/.detect-daemon-osarch && echo $${DOCKER_ENGINE_OSARCH:+$$DOCKER_CLIENT_OSARCH}')
@@ -108,3 +108,6 @@ test-unit: build
 
 validate: build
 	$(DOCKER_RUN_DOCKER) hack/make.sh validate-dco validate-gofmt validate-pkg validate-lint validate-test validate-toml validate-vet validate-vendor
+
+run: build
+	$(DOCKER_RUN_DOCKER) hack/make.sh $(MAKESH_COMMANDS)
