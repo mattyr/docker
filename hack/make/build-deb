@@ -52,6 +52,7 @@ set -e
 			FROM $image
 			WORKDIR /usr/src/docker
 			COPY . /usr/src/docker
+      ENV DOCKER_GITCOMMIT $GITCOMMIT
 			RUN mkdir -p /go/src/github.com/docker \
 				&& ln -snf /usr/src/docker /go/src/github.com/docker/docker
 		EOF
