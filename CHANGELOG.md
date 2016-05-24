@@ -7,6 +7,10 @@ be found.
 
 ## 1.10.3 (2016-03-10)
 
+- Patch vendored libnetwork to source dns queries from sandbox
+
+## 1.10.3 (2016-03-10)
+
 ### Runtime
 
 - Fix Docker client exiting with an "Unrecognized input header" error [#20706](https://github.com/docker/docker/pull/20706)
